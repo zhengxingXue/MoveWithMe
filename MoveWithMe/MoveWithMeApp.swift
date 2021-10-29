@@ -11,7 +11,7 @@ import SwiftUI
 struct MoveWithMeApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MoveWithMeView()
         }
     }
 }
