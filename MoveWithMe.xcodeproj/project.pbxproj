@@ -31,6 +31,8 @@
 		38E1A87E272B73A8001952EF /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E1A869272B73A8001952EF /* Color+.swift */; };
 		38E1A87F272B73A8001952EF /* CGImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E1A86A272B73A8001952EF /* CGImage+.swift */; };
 		38E1A880272B73A8001952EF /* Double+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E1A86B272B73A8001952EF /* Double+.swift */; };
+		38E1A883272B74B0001952EF /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E1A882272B74B0001952EF /* View+.swift */; };
+		38E1A886272B769B001952EF /* CircleButtonLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E1A885272B769B001952EF /* CircleButtonLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +61,8 @@
 		38E1A869272B73A8001952EF /* Color+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 		38E1A86A272B73A8001952EF /* CGImage+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGImage+.swift"; sourceTree = "<group>"; };
 		38E1A86B272B73A8001952EF /* Double+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+.swift"; sourceTree = "<group>"; };
+		38E1A882272B74B0001952EF /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
+		38E1A885272B769B001952EF /* CircleButtonLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButtonLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +159,7 @@
 		38E1A85E272B73A7001952EF /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				38E1A884272B766A001952EF /* Componenets */,
 				38E1A85F272B73A7001952EF /* PoseView */,
 			);
 			path = Core;
@@ -189,11 +194,12 @@
 		38E1A866272B73A7001952EF /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				38E1A867272B73A8001952EF /* CGPoint+.swift */,
 				38E1A868272B73A8001952EF /* AVCaptureVideoOrientation+.swift */,
-				38E1A869272B73A8001952EF /* Color+.swift */,
 				38E1A86A272B73A8001952EF /* CGImage+.swift */,
+				38E1A867272B73A8001952EF /* CGPoint+.swift */,
+				38E1A869272B73A8001952EF /* Color+.swift */,
 				38E1A86B272B73A8001952EF /* Double+.swift */,
+				38E1A882272B74B0001952EF /* View+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -205,6 +211,14 @@
 				38E1A863272B73A7001952EF /* PoseNetImageView.swift */,
 			);
 			path = PoseNetViews;
+			sourceTree = "<group>";
+		};
+		38E1A884272B766A001952EF /* Componenets */ = {
+			isa = PBXGroup;
+			children = (
+				38E1A885272B769B001952EF /* CircleButtonLabel.swift */,
+			);
+			path = Componenets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,9 +295,11 @@
 				38E1A86D272B73A8001952EF /* VideoCapture.swift in Sources */,
 				38E1A86E272B73A8001952EF /* Joint.swift in Sources */,
 				38E1A870272B73A8001952EF /* PoseBuilder+Single.swift in Sources */,
+				38E1A883272B74B0001952EF /* View+.swift in Sources */,
 				38E1A878272B73A8001952EF /* PoseViewModel.swift in Sources */,
 				38E1A876272B73A8001952EF /* PoseNetInput.swift in Sources */,
 				38E1A87E272B73A8001952EF /* Color+.swift in Sources */,
+				38E1A886272B769B001952EF /* CircleButtonLabel.swift in Sources */,
 				38E1A871272B73A8001952EF /* Pose.swift in Sources */,
 				38E1A880272B73A8001952EF /* Double+.swift in Sources */,
 				38E1A87A272B73A8001952EF /* PoseView.swift in Sources */,
@@ -432,6 +448,7 @@
 				DEVELOPMENT_TEAM = 8ZB5TQ6MK9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -461,6 +478,7 @@
 				DEVELOPMENT_TEAM = 8ZB5TQ6MK9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
