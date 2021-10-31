@@ -112,7 +112,7 @@ struct PoseNetSettingView: View {
                     .frame(width: proxy.size.width / 2, alignment: .trailing)
             }
         }
-        if isiPhone {
+        else if isiPhone {
             VStack(alignment: .leading, spacing: 0) {
                 Text(name + " (\(value.wrappedValue.asNumberString1Decimal()))")
                 Slider(value: value, in: range, step: step)
