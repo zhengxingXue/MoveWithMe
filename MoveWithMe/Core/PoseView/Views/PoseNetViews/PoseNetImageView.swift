@@ -38,7 +38,7 @@ class PoseNetImageView: UIImageView {
     /// The width of the line connecting two joints.
     @IBInspectable var segmentLineWidth: CGFloat = 2
     /// The color of the line connecting two joints.
-    @IBInspectable var segmentColor: UIColor = UIColor.systemTeal
+    @IBInspectable var segmentColor: UIColor = UIColor.systemOrange
     /// The radius of the circles drawn for each joint.
     @IBInspectable var jointRadius: CGFloat = 4
     /// The color of the circles drawn for each joint.
