@@ -38,7 +38,7 @@ extension PoseBuilder {
             detectedPoses.append(pose)
 
             // Exit early if enough poses have been detected.
-            if detectedPoses.count >= configuration.maxPoseCount {
+            if detectedPoses.count >= Int(configuration.maxPoseCount) {
                 break
             }
         }

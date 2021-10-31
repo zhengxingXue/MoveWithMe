@@ -12,6 +12,7 @@ struct PoseView: View {
     
     @State var orientation = UIDevice.current.orientation
     @State var showButtons: Bool = true
+    @State var showSettingView: Bool = false
     
     let orientationChanged = NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)
         .makeConnectable()
@@ -31,6 +32,9 @@ struct PoseView: View {
                     .ignoresSafeArea()
             )
         }
+        .sheet(isPresented: $showSettingView, content: {
+            PoseNetSettingView(vm: poseVM, showSettingView: $showSettingView)
+        })
         .onReceive(orientationChanged) { _ in
             if isiPad { self.poseVM.setupAndBeginCapturingVideoFrames() }
         }
@@ -114,12 +118,13 @@ extension PoseView {
             VStack {
                 if showButtons {
                     Button {
-                        print("DEBUG: setting button clicked")
+//                        print("DEBUG: setting button clicked")
+                        showSettingView.toggle()
                     } label: {
                         CircleButtonLabel(systemName: "gearshape")
                     }
                     Button {
-                        print("DEBUG: flip camera button clicked")
+//                        print("DEBUG: flip camera button clicked")
                         poseVM.flipCamera()
                     } label: {
                         CircleButtonLabel(systemName: "arrow.triangle.2.circlepath")

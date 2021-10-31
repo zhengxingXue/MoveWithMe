@@ -9,4 +9,6 @@ import SwiftUI
 
 extension View {
     var isiPad: Bool { UIDevice.current.localizedModel == "iPad" }
+    
+    var isiPhone: Bool { UIDevice.current.localizedModel == "iPhone" }
 }

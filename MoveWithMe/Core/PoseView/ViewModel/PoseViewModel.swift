@@ -12,18 +12,18 @@ import VideoToolbox
 class PoseViewModel: NSObject, ObservableObject {
     @Published var previewImageView = PoseNetImageView()
     
+    /// The algorithm the controller uses to extract poses from the current frame.
+    @Published var algorithm: Algorithm = .single
+    
+    /// The set of parameters passed to the pose builder when detecting poses.
+    @Published var poseBuilderConfiguration = PoseBuilderConfiguration()
+    
     private let videoCapture = VideoCapture()
     
     private var poseNet: PoseNet!
     
     /// The frame the PoseNet model is currently making pose predictions from.
     private var currentFrame: CGImage?
-    
-    /// The algorithm the controller uses to extract poses from the current frame.
-    var algorithm: Algorithm = .single
-    
-    /// The set of parameters passed to the pose builder when detecting poses.
-    private var poseBuilderConfiguration = PoseBuilderConfiguration()
     
     override init() {
         super.init()
@@ -63,6 +63,14 @@ class PoseViewModel: NSObject, ObservableObject {
     
     func stopCapturing() {
         videoCapture.stopCapturing()
+    }
+    
+    func setMoveNetAlgorithm(to algorithm: Algorithm) {
+        self.algorithm = algorithm
+    }
+    
+    func setMoveNetConfiguration(to configuration: PoseBuilderConfiguration) {
+        self.poseBuilderConfiguration = configuration
     }
 }
 

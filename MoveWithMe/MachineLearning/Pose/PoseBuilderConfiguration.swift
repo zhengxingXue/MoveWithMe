@@ -15,28 +15,31 @@ enum Algorithm: Int {
 
 struct PoseBuilderConfiguration {
     /// The minimum value for valid joints in a pose.
-    var jointConfidenceThreshold = 0.1
+    var jointConfidenceThreshold: Double = 0.1
 
     /// The minimum value for a valid pose.
-    var poseConfidenceThreshold = 0.5
+    var poseConfidenceThreshold: Double = 0.5
 
     /// The minimum distance between two distinct joints of the same type.
     ///
     /// - Note: This parameter only applies to the multiple-pose algorithm.
-    var matchingJointDistance = 40.0
+    var matchingJointDistance: Double = 40.0
 
     /// Search radius used when checking if a joint has the greatest confidence amongst its neighbors.
     ///
     /// - Note: This parameter only applies to the multiple-pose algorithm.
-    var localSearchRadius = 3
+    var localSearchRadiusDouble: Double = 3
+    var localSearchRadius: Int { Int(localSearchRadiusDouble) }
 
     /// The maximum number of poses returned.
     ///
     /// - Note: This parameter only applies to the multiple-pose algorithm.
-    var maxPoseCount = 15
+    var maxPoseCountDouble: Double = 15
+    var maxPoseCount: Int { Int(maxPoseCountDouble) }
 
     /// The number of iterations performed to refine an adjacent joint's position.
     ///
     /// - Note: This parameter only applies to the multiple-pose algorithm.
-    var adjacentJointOffsetRefinementSteps = 3
+    var adjacentJointOffsetRefinementStepsDouble: Double = 3
+    var adjacentJointOffsetRefinementSteps: Int { Int(adjacentJointOffsetRefinementStepsDouble) }
 }

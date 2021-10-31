@@ -33,6 +33,7 @@
 		38E1A880272B73A8001952EF /* Double+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E1A86B272B73A8001952EF /* Double+.swift */; };
 		38E1A883272B74B0001952EF /* View+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E1A882272B74B0001952EF /* View+.swift */; };
 		38E1A886272B769B001952EF /* CircleButtonLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E1A885272B769B001952EF /* CircleButtonLabel.swift */; };
+		38E1A888272B8777001952EF /* PoseNetSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E1A887272B8777001952EF /* PoseNetSettingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		38E1A86B272B73A8001952EF /* Double+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+.swift"; sourceTree = "<group>"; };
 		38E1A882272B74B0001952EF /* View+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+.swift"; sourceTree = "<group>"; };
 		38E1A885272B769B001952EF /* CircleButtonLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButtonLabel.swift; sourceTree = "<group>"; };
+		38E1A887272B8777001952EF /* PoseNetSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoseNetSettingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				38E1A864272B73A7001952EF /* PoseView.swift */,
+				38E1A887272B8777001952EF /* PoseNetSettingView.swift */,
 				38E1A881272B73FC001952EF /* PoseNetViews */,
 			);
 			path = Views;
@@ -309,6 +312,7 @@
 				38E1A841272B7319001952EF /* MoveWithMeApp.swift in Sources */,
 				38E1A86F272B73A8001952EF /* PoseBuilder+Multiple.swift in Sources */,
 				38E1A87B272B73A8001952EF /* PoseNetView.swift in Sources */,
+				38E1A888272B8777001952EF /* PoseNetSettingView.swift in Sources */,
 				38E1A872272B73A8001952EF /* PoseBuilder.swift in Sources */,
 				38E1A879272B73A8001952EF /* PoseNetImageView.swift in Sources */,
 				38E1A86C272B73A8001952EF /* MoveWithMeView.swift in Sources */,
