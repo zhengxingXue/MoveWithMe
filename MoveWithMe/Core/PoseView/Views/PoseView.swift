@@ -98,7 +98,7 @@ extension PoseView {
                         Circle()
                             .stroke(Color.orange.opacity(0.3), lineWidth: 10)
                         Circle()
-                            .trim(from: 0, to: 0.8)
+                            .trim(from: 0, to: (poseVM.leftArmAngle?.degrees ?? 90) / 180)
                             .rotation(Angle(degrees: -90))
                         .stroke(Color.orange, style: StrokeStyle(lineWidth: 10, lineCap: .round))
                     }

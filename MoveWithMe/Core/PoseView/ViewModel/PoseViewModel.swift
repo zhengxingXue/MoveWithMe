@@ -8,15 +8,18 @@
 import AVFoundation
 import UIKit
 import VideoToolbox
+import SwiftUI
 
 class PoseViewModel: NSObject, ObservableObject {
     @Published var previewImageView = PoseNetImageView()
     
     /// The algorithm the controller uses to extract poses from the current frame.
-    @Published var algorithm: Algorithm = .single
+    @Published var algorithm: Algorithm = .multiple
     
     /// The set of parameters passed to the pose builder when detecting poses.
     @Published var poseBuilderConfiguration = PoseBuilderConfiguration()
+    
+    @Published var leftArmAngle: Angle? = .none
     
     private let videoCapture = VideoCapture()
     
@@ -24,6 +27,15 @@ class PoseViewModel: NSObject, ObservableObject {
     
     /// The frame the PoseNet model is currently making pose predictions from.
     private var currentFrame: CGImage?
+    
+    private var currentPose: Pose? = nil {
+        didSet {
+            if let pose = currentPose {
+                let an = pose.getAngle(origin: .leftShoulder, p2: .leftElbow, p3: .leftHip).degrees
+                leftArmAngle = Angle(degrees: Double(Int(an / 5) * 5))
+            }
+        }
+    }
     
     override init() {
         super.init()
@@ -107,9 +119,9 @@ extension PoseViewModel: PoseNetDelegate {
                                       configuration: poseBuilderConfiguration,
                                       inputImage: currentFrame)
         
-        let poses = algorithm == .single
-        ? [poseBuilder.pose]
-        : poseBuilder.poses
+        let poses = algorithm == .single ? [poseBuilder.pose] : poseBuilder.poses
+        
+        self.currentPose = poses.first
         
         previewImageView.show(poses: poses, on: currentFrame)
     }

@@ -6,6 +6,7 @@ Implementation details of a structure used to describe a pose.
 */
 
 import CoreGraphics
+import SwiftUI
 
 struct Pose {
 
@@ -99,5 +100,21 @@ struct Pose {
     /// - returns: All edges that connect to or from `jointName`.
     static func edge(from parentJointName: Joint.Name, to childJointName: Joint.Name) -> Edge? {
         return Pose.edges.first(where: { $0.parent == parentJointName && $0.child == childJointName })
+    }
+    
+    func getAngle(origin originJointName: Joint.Name, p2 p2JointName: Joint.Name, p3 p3JointName: Joint.Name) -> Angle {
+        let p1 = self[originJointName].position
+        let p2 = self[p2JointName].position
+        let p3 = self[p3JointName].position
+        
+        let p12 = length(from: p1, to: p2)
+        let p13 = length(from: p1, to: p3)
+        let p23 = length(from: p2, to: p3)
+        
+        return Angle(radians: acos((p12 * p12 + p13 * p13 - p23 * p23) / (2 * p12 * p13)))
+    }
+    
+    private func length(from p1: CGPoint, to p2: CGPoint) -> Double {
+        sqrt((p1.x - p2.x) * (p1.x - p2.x) + (p1.y - p2.y) * (p1.y - p2.y))
     }
 }
