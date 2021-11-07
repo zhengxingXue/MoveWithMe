@@ -1,9 +1,5 @@
 /*
-See LICENSE folder for this sample’s licensing information.
-
-Abstract:
-An initializer that creates an instance of the video orientation based on the given
- device orientation.
+Source: https://developer.apple.com/documentation/coreml/detecting_human_body_poses_in_an_image
 */
 
 import AVFoundation

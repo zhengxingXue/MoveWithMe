@@ -1,9 +1,5 @@
 /*
-See LICENSE folder for this sample’s licensing information.
-
-Abstract:
-The implementation of a single-person pose estimation algorithm, based on the TensorFlow
- project "Pose Detection in the Browser."
+Source: https://developer.apple.com/documentation/coreml/detecting_human_body_poses_in_an_image
 */
 
 import CoreGraphics

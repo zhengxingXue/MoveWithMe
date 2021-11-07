@@ -1,9 +1,5 @@
 /*
-See LICENSE folder for this sample’s licensing information.
-
-Abstract:
-The implementation details of some mathematical operations that extend the CGPoint
- structure.
+Source: https://developer.apple.com/documentation/coreml/detecting_human_body_poses_in_an_image
 */
 
 import CoreGraphics

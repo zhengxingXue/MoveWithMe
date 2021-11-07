@@ -1,9 +1,5 @@
 /*
-See LICENSE folder for this sample’s licensing information.
-
-Abstract:
-The implementation of a CoreML feature provider passed to the PoseNet model by the
- PoseNet class for prediction.
+Source: https://developer.apple.com/documentation/coreml/detecting_human_body_poses_in_an_image
 */
 
 import CoreML

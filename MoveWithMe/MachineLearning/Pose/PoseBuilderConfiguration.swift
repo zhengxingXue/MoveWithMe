@@ -1,9 +1,5 @@
 /*
-See LICENSE folder for this sample’s licensing information.
-
-Abstract:
-The implementation details of a structure that hold the parameters algorithms use for
- estimating poses.
+Source: https://developer.apple.com/documentation/coreml/detecting_human_body_poses_in_an_image
 */
 
 import CoreGraphics

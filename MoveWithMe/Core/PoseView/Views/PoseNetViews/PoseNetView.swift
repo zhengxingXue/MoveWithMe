@@ -1,6 +1,6 @@
 //
 //  PoseNetView.swift
-//  shared
+//  MoveWithMe
 //
 //  Created by Jim's MacBook Pro on 9/27/21.
 //

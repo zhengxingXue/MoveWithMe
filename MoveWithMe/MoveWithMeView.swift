@@ -1,6 +1,6 @@
 //
 //  MoveWithMeView.swift
-//  Shared
+//  MoveWithMe
 //
 //  Created by Jim's MacBook Pro on 10/28/21.
 //
