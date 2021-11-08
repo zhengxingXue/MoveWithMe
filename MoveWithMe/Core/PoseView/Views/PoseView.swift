@@ -33,7 +33,8 @@ struct PoseView: View {
             )
         }
         .sheet(isPresented: $showSettingView, content: {
-            PoseNetSettingView(vm: poseVM, showSettingView: $showSettingView)
+            PoseNetSettingView(showSettingView: $showSettingView)
+                .environmentObject(poseVM)
         })
         .onReceive(orientationChanged) { _ in
             if isiPad { self.poseVM.setupAndBeginCapturingVideoFrames() }
@@ -98,6 +99,14 @@ extension PoseView {
                         Circle()
                             .stroke(Color.orange.opacity(0.3), lineWidth: 10)
                         Circle()
+                            .trim(from: 0, to: (poseVM.rightArmAngel?.degrees ?? 90) / 180)
+                            .rotation(Angle(degrees: -90))
+                        .stroke(Color.orange, style: StrokeStyle(lineWidth: 10, lineCap: .round))
+                    }
+                    ZStack {
+                        Circle()
+                            .stroke(Color.orange.opacity(0.3), lineWidth: 10)
+                        Circle()
                             .trim(from: 0, to: (poseVM.leftArmAngle?.degrees ?? 90) / 180)
                             .rotation(Angle(degrees: -90))
                         .stroke(Color.orange, style: StrokeStyle(lineWidth: 10, lineCap: .round))
@@ -120,7 +129,6 @@ extension PoseView {
                     Button {
 //                        print("DEBUG: setting button clicked")
                         showSettingView.toggle()
-                        poseVM.inSettingView = true
                     } label: {
                         CircleButtonLabel(systemName: "gearshape")
                     }

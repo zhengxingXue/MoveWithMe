@@ -19,10 +19,9 @@ class PoseViewModel: NSObject, ObservableObject {
     /// The set of parameters passed to the pose builder when detecting poses.
     @Published var poseBuilderConfiguration = PoseBuilderConfiguration()
     
+    /// Claculated angle variables based on pose data
     @Published var leftArmAngle: Angle? = .none
-    
-    /// Keep track if in setting view, if in setting view, stop updating angle variable 
-    var inSettingView: Bool = false
+    @Published var rightArmAngel: Angle? = .none
     
     private let videoCapture = VideoCapture()
     
@@ -33,8 +32,12 @@ class PoseViewModel: NSObject, ObservableObject {
     
     private var currentPose: Pose? = nil {
         didSet {
-            if !inSettingView, let pose = currentPose {
+            if let pose = currentPose {
                 leftArmAngle = pose.getAngle(origin: .leftShoulder, p2: .leftElbow, p3: .leftHip)
+                rightArmAngel = pose.getAngle(origin: .rightShoulder, p2: .rightElbow, p3: .rightHip)
+            } else {
+                leftArmAngle = .none
+                rightArmAngel = .none
             }
         }
     }

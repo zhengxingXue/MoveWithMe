@@ -11,10 +11,11 @@ struct PoseNetSettingView: View {
     
     @Binding private var showSettingView: Bool
     
-    @ObservedObject var vm: PoseViewModel
+    @State private var currentAlgorithm: Algorithm = .multiple
     
-    init(vm: PoseViewModel, showSettingView: Binding<Bool>) {
-        self.vm = vm
+    @EnvironmentObject var vm: PoseViewModel
+    
+    init(showSettingView: Binding<Bool>) {
         self._showSettingView = showSettingView
     }
     
@@ -24,7 +25,7 @@ struct PoseNetSettingView: View {
                 Form {
                     Section(header: Text("Pose Net")) {
                         
-                        Picker("Algorithm", selection: $vm.algorithm) {
+                        Picker("Algorithm", selection: $currentAlgorithm) {
                             Text("Single Pose").tag(Algorithm.single)
                             Text("Multiple Poses").tag(Algorithm.multiple)
                         }
@@ -46,7 +47,7 @@ struct PoseNetSettingView: View {
                             proxy: proxy
                         )
                         
-                        if vm.algorithm == .multiple {
+                        if currentAlgorithm == .multiple {
                             makePoseNetConfigurationRow(
                                 name: "Matching Joint Distance",
                                 value: $vm.poseBuilderConfiguration.matchingJointDistance,
@@ -95,9 +96,13 @@ struct PoseNetSettingView: View {
                 }
             }
         }
-        .onDisappear {
-            vm.inSettingView = false
-//            print("DEBUG: Setting View closed")
+        .onChange(of: currentAlgorithm, perform: { newValue in
+            vm.algorithm = newValue
+            print("DEBUG: VM algorithm \(vm.algorithm)")
+        })
+        .onAppear {
+            self.currentAlgorithm = vm.algorithm
+//            print("DEBUG: Current Algorithm \(currentAlgorithm)")
         }
     }
     
@@ -114,7 +119,7 @@ struct PoseNetSettingView: View {
                 Text(name + " (\(value.wrappedValue.asNumberString1Decimal()))")
                 Spacer()
                 Slider(value: value, in: range, step: step)
-                    .frame(width: proxy.size.width / 2, alignment: .trailing)
+                    .frame(width: proxy.size.width / 2.3, alignment: .trailing)
             }
         }
         else if isiPhone {
