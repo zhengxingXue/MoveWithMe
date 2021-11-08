@@ -80,6 +80,7 @@ struct PoseNetSettingView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
+                        vm.algorithm = .multiple
                         vm.poseBuilderConfiguration = PoseBuilderConfiguration()
                     } label: {
                         Text("Reset")
@@ -93,6 +94,10 @@ struct PoseNetSettingView: View {
                     }
                 }
             }
+        }
+        .onDisappear {
+            vm.inSettingView = false
+//            print("DEBUG: Setting View closed")
         }
     }
     

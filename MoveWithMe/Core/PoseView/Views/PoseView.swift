@@ -120,6 +120,7 @@ extension PoseView {
                     Button {
 //                        print("DEBUG: setting button clicked")
                         showSettingView.toggle()
+                        poseVM.inSettingView = true
                     } label: {
                         CircleButtonLabel(systemName: "gearshape")
                     }

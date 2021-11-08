@@ -21,6 +21,9 @@ class PoseViewModel: NSObject, ObservableObject {
     
     @Published var leftArmAngle: Angle? = .none
     
+    /// Keep track if in setting view, if in setting view, stop updating angle variable 
+    var inSettingView: Bool = false
+    
     private let videoCapture = VideoCapture()
     
     private var poseNet: PoseNet!
@@ -30,9 +33,8 @@ class PoseViewModel: NSObject, ObservableObject {
     
     private var currentPose: Pose? = nil {
         didSet {
-            if let pose = currentPose {
-                let an = pose.getAngle(origin: .leftShoulder, p2: .leftElbow, p3: .leftHip).degrees
-                leftArmAngle = Angle(degrees: Double(Int(an / 5) * 5))
+            if !inSettingView, let pose = currentPose {
+                leftArmAngle = pose.getAngle(origin: .leftShoulder, p2: .leftElbow, p3: .leftHip)
             }
         }
     }
@@ -75,14 +77,6 @@ class PoseViewModel: NSObject, ObservableObject {
     
     func stopCapturing() {
         videoCapture.stopCapturing()
-    }
-    
-    func setMoveNetAlgorithm(to algorithm: Algorithm) {
-        self.algorithm = algorithm
-    }
-    
-    func setMoveNetConfiguration(to configuration: PoseBuilderConfiguration) {
-        self.poseBuilderConfiguration = configuration
     }
 }
 
