@@ -76,7 +76,7 @@ class PoseNetImageView: UIImageView {
                 }
 
                 // Draw the joints as circles above the segment lines.
-                for joint in pose.joints.values.filter({ $0.isValid }) {
+                for joint in pose.joints.values.filter({ $0.isValid && !([Joint.Name.leftEye, .rightEye].contains($0.name)) }) {
                     draw(circle: joint, in: rendererContext.cgContext)
                 }
             }
@@ -124,11 +124,13 @@ class PoseNetImageView: UIImageView {
     ///     - circle: A valid joint whose position is used as the circle's center.
     ///     - cgContext: The rendering context.
     private func draw(circle joint: Joint, in cgContext: CGContext) {
-        cgContext.setFillColor(jointColor.cgColor)
+//        cgContext.setFillColor(jointColor.cgColor)
+        cgContext.setStrokeColor(jointColor.cgColor)
+        cgContext.setLineWidth(2)
 
         let rectangle = CGRect(x: joint.position.x - jointRadius, y: joint.position.y - jointRadius,
                                width: jointRadius * 2, height: jointRadius * 2)
         cgContext.addEllipse(in: rectangle)
-        cgContext.drawPath(using: .fill)
+        cgContext.drawPath(using: .stroke)
     }
 }
