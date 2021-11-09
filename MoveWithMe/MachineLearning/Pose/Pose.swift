@@ -99,7 +99,9 @@ struct Pose {
         return Pose.edges.first(where: { $0.parent == parentJointName && $0.child == childJointName })
     }
     
-    func getAngle(origin originJointName: Joint.Name, p2 p2JointName: Joint.Name, p3 p3JointName: Joint.Name) -> Angle {
+    func getAngle(origin originJointName: Joint.Name, p2 p2JointName: Joint.Name, p3 p3JointName: Joint.Name) -> Angle? {
+        guard self[originJointName].isValid && self[p2JointName].isValid && self[p3JointName].isValid else { return nil }
+        
         let p1 = self[originJointName].position
         let p2 = self[p2JointName].position
         let p3 = self[p3JointName].position
