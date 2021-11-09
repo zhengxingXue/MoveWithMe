@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38D1AED3273A1A6500A6E31F /* CircleIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D1AED2273A1A6500A6E31F /* CircleIndicator.swift */; };
 		38E1A841272B7319001952EF /* MoveWithMeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E1A840272B7319001952EF /* MoveWithMeApp.swift */; };
 		38E1A845272B731D001952EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38E1A844272B731D001952EF /* Assets.xcassets */; };
 		38E1A848272B731D001952EF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38E1A847272B731D001952EF /* Preview Assets.xcassets */; };
@@ -37,6 +38,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		38D1AED2273A1A6500A6E31F /* CircleIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleIndicator.swift; sourceTree = "<group>"; };
 		38E1A83D272B7319001952EF /* MoveWithMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoveWithMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38E1A840272B7319001952EF /* MoveWithMeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveWithMeApp.swift; sourceTree = "<group>"; };
 		38E1A844272B731D001952EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				38E1A885272B769B001952EF /* CircleButtonLabel.swift */,
+				38D1AED2273A1A6500A6E31F /* CircleIndicator.swift */,
 			);
 			path = Componenets;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 				38E1A875272B73A8001952EF /* PoseNet.swift in Sources */,
 				38E1A841272B7319001952EF /* MoveWithMeApp.swift in Sources */,
 				38E1A86F272B73A8001952EF /* PoseBuilder+Multiple.swift in Sources */,
+				38D1AED3273A1A6500A6E31F /* CircleIndicator.swift in Sources */,
 				38E1A87B272B73A8001952EF /* PoseNetView.swift in Sources */,
 				38E1A888272B8777001952EF /* PoseNetSettingView.swift in Sources */,
 				38E1A872272B73A8001952EF /* PoseBuilder.swift in Sources */,

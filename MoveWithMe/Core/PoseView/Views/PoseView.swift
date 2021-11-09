@@ -95,22 +95,8 @@ extension PoseView {
                 }
                 Spacer()
                 HStack {
-                    ZStack {
-                        Circle()
-                            .stroke(Color.orange.opacity(0.3), lineWidth: 10)
-                        Circle()
-                            .trim(from: 0, to: (poseVM.rightArmAngel?.degrees ?? 90) / 180)
-                            .rotation(Angle(degrees: -90))
-                        .stroke(Color.orange, style: StrokeStyle(lineWidth: 10, lineCap: .round))
-                    }
-                    ZStack {
-                        Circle()
-                            .stroke(Color.orange.opacity(0.3), lineWidth: 10)
-                        Circle()
-                            .trim(from: 0, to: (poseVM.leftArmAngle?.degrees ?? 90) / 180)
-                            .rotation(Angle(degrees: -90))
-                        .stroke(Color.orange, style: StrokeStyle(lineWidth: 10, lineCap: .round))
-                    }
+                    CircleIndicator(color: .orange, lineWidth: 10, trimRatio: (poseVM.rightArmAngel?.degrees ?? 90) / 180)
+                    CircleIndicator(color: .orange, lineWidth: 10, trimRatio: (poseVM.leftArmAngle?.degrees ?? 90) / 180)
                 }
             }
             .font(.system(size: 50))
