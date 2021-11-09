@@ -9,12 +9,14 @@ import SwiftUI
 
 struct CircleIndicator: View {
     
+    var data: Double
     var color: Color
     var lineWidth: CGFloat
     var trimRatio: CGFloat
     
     var body: some View {
         ZStack {
+            Text(data.asNumberString0Decimal())
             Circle()
                 .stroke(color.opacity(0.3), lineWidth: lineWidth)
             Circle()
@@ -27,7 +29,7 @@ struct CircleIndicator: View {
 
 struct CircleIndicator_Previews: PreviewProvider {
     static var previews: some View {
-        CircleIndicator(color: .orange, lineWidth: 10, trimRatio: 0.5)
+        CircleIndicator(data: 90.0, color: .orange, lineWidth: 10, trimRatio: 0.5)
             .padding()
     }
 }

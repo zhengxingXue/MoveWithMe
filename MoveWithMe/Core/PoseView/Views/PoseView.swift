@@ -49,8 +49,8 @@ struct PoseView_Previews: PreviewProvider {
             .preferredColorScheme(.light)
             .previewDevice("iPad Pro (11-inch) (3rd generation)")
             .previewInterfaceOrientation(.landscapeLeft)
-        PoseView()
-            .previewDevice("iPhone 11 Pro Max")
+//        PoseView()
+//            .previewDevice("iPhone 11 Pro Max")
     }
 }
 
@@ -75,35 +75,27 @@ extension PoseView {
             RoundedRectangle(cornerRadius: 20)
                 .fill(Color.black.opacity(0.6))
             VStack {
-                HStack {
-                    Text("16:37")
-                    Spacer()
+                HStack(spacing: 20) {
+                    CircleIndicator(
+                        data: (poseVM.rightArmAngel?.degrees ?? 90),
+                        color: .orange,
+                        lineWidth: 10,
+                        trimRatio: (poseVM.rightArmAngel?.degrees ?? 90) / 180
+                    )
+                    CircleIndicator(
+                        data: (poseVM.leftArmAngle?.degrees ?? 90),
+                        color: .orange,
+                        lineWidth: 10,
+                        trimRatio: (poseVM.leftArmAngle?.degrees ?? 90) / 180
+                    )
                 }
-                HStack(alignment: .center, spacing: 0) {
-                    Text("136")
-                    Image(systemName: "heart.fill")
-                        .font(.largeTitle)
-                        .foregroundColor(.red)
-                    Spacer()
-                }
-                HStack(alignment: .center, spacing: 0) {
-                    Text("142")
-                    Text("CAL")
-                        .font(.largeTitle)
-                        .foregroundColor(.red)
-                    Spacer()
-                }
+                .font(.system(size: 50))
+                .foregroundColor(.white)
                 Spacer()
-                HStack {
-                    CircleIndicator(color: .orange, lineWidth: 10, trimRatio: (poseVM.rightArmAngel?.degrees ?? 90) / 180)
-                    CircleIndicator(color: .orange, lineWidth: 10, trimRatio: (poseVM.leftArmAngle?.degrees ?? 90) / 180)
-                }
             }
-            .font(.system(size: 50))
-            .foregroundColor(.white)
             .padding()
         }
-        .frame(width: 230, height: 300)
+        .frame(width: 300, height: 150)
     }
     
     // MARK: Bottom Section
