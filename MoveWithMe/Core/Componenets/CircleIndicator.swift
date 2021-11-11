@@ -17,7 +17,9 @@ struct CircleIndicator: View {
     
     var body: some View {
         ZStack {
-            Text(data.asNumberString0Decimal())
+            if showData {
+                Text(data.asNumberString0Decimal())
+            }
             Circle()
                 .stroke(color.opacity(0.3), lineWidth: lineWidth)
             Circle()

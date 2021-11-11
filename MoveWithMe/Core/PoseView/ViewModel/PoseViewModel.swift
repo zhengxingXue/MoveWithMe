@@ -22,6 +22,8 @@ class PoseViewModel: NSObject, ObservableObject {
     /// Claculated angle variables based on pose data
     @Published var leftArmAngle: Angle? = .none
     @Published var rightArmAngel: Angle? = .none
+    @Published var leftLegAngel: Angle? = .none
+    @Published var rightLegAngle: Angle? = .none
     
     private let videoCapture = VideoCapture()
     
@@ -35,9 +37,13 @@ class PoseViewModel: NSObject, ObservableObject {
             if let pose = currentPose {
                 leftArmAngle = pose.getAngle(origin: .leftShoulder, p2: .leftElbow, p3: .leftHip)
                 rightArmAngel = pose.getAngle(origin: .rightShoulder, p2: .rightElbow, p3: .rightHip)
+                leftLegAngel = pose.getAngle(origin: .leftHip, p2: .leftKnee, p3: .leftShoulder)
+                rightLegAngle = pose.getAngle(origin: .rightHip, p2: .rightKnee, p3: .rightShoulder)
             } else {
                 leftArmAngle = .none
                 rightArmAngel = .none
+                leftLegAngel = .none
+                rightLegAngle = .none
             }
         }
     }
