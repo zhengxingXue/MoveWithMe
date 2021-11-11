@@ -10,6 +10,7 @@ import SwiftUI
 struct CircleIndicator: View {
     
     var data: Double
+    var showData: Bool
     var color: Color
     var lineWidth: CGFloat
     var trimRatio: CGFloat
@@ -29,7 +30,7 @@ struct CircleIndicator: View {
 
 struct CircleIndicator_Previews: PreviewProvider {
     static var previews: some View {
-        CircleIndicator(data: 90.0, color: .orange, lineWidth: 10, trimRatio: 0.5)
+        CircleIndicator(data: 90.0, showData: true, color: .orange, lineWidth: 10, trimRatio: 0.5)
             .padding()
     }
 }

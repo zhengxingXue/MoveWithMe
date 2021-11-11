@@ -78,12 +78,14 @@ extension PoseView {
                 HStack(spacing: 20) {
                     CircleIndicator(
                         data: (poseVM.rightArmAngel?.degrees ?? 90),
+                        showData: true,
                         color: .orange,
                         lineWidth: 10,
                         trimRatio: (poseVM.rightArmAngel?.degrees ?? 90) / 180
                     )
                     CircleIndicator(
                         data: (poseVM.leftArmAngle?.degrees ?? 90),
+                        showData: true,
                         color: .orange,
                         lineWidth: 10,
                         trimRatio: (poseVM.leftArmAngle?.degrees ?? 90) / 180
