@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38B2B7A1273EF46B00779ED7 /* WorkoutStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B2B7A0273EF46B00779ED7 /* WorkoutStatsView.swift */; };
 		38D1AED3273A1A6500A6E31F /* CircleIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D1AED2273A1A6500A6E31F /* CircleIndicator.swift */; };
 		38E1A841272B7319001952EF /* MoveWithMeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E1A840272B7319001952EF /* MoveWithMeApp.swift */; };
 		38E1A845272B731D001952EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38E1A844272B731D001952EF /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		38B2B7A0273EF46B00779ED7 /* WorkoutStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutStatsView.swift; sourceTree = "<group>"; };
 		38D1AED2273A1A6500A6E31F /* CircleIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleIndicator.swift; sourceTree = "<group>"; };
 		38E1A83D272B7319001952EF /* MoveWithMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoveWithMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38E1A840272B7319001952EF /* MoveWithMeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveWithMeApp.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 			children = (
 				38E1A864272B73A7001952EF /* PoseView.swift */,
 				38E1A887272B8777001952EF /* PoseNetSettingView.swift */,
+				38B2B7A0273EF46B00779ED7 /* WorkoutStatsView.swift */,
 				38E1A881272B73FC001952EF /* PoseNetViews */,
 			);
 			path = Views;
@@ -299,6 +302,7 @@
 			files = (
 				38E1A87D272B73A8001952EF /* AVCaptureVideoOrientation+.swift in Sources */,
 				38E1A86D272B73A8001952EF /* VideoCapture.swift in Sources */,
+				38B2B7A1273EF46B00779ED7 /* WorkoutStatsView.swift in Sources */,
 				38E1A86E272B73A8001952EF /* Joint.swift in Sources */,
 				38E1A870272B73A8001952EF /* PoseBuilder+Single.swift in Sources */,
 				38E1A883272B74B0001952EF /* View+.swift in Sources */,
