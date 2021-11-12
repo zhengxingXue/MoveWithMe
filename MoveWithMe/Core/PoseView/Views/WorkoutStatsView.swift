@@ -33,6 +33,7 @@ extension WorkoutStatsView {
     
     private var iPadTabView: some View {
         TabView {
+            repCountView
             circleIndicatorWithFigureView
         }
         .foregroundColor(.white)
@@ -42,6 +43,18 @@ extension WorkoutStatsView {
         )
         .tabViewStyle(.page(indexDisplayMode: .never))
         .frame(width: 300, height: 200)
+    }
+    
+    private var repCountView: some View {
+        CircleIndicator(
+            data: 10,
+            showData: true,
+            color: .orange,
+            lineWidth: 16,
+            trimRatio: 10 / 12
+        )
+            .padding(30)
+            .font(.system(size: 70))
     }
     
     private var circleIndicatorWithFigureView: some View {
