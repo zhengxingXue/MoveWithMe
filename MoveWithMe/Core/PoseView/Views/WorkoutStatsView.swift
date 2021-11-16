@@ -50,22 +50,13 @@ extension WorkoutStatsView {
             makeRepCountIndicator(for: poseVM.exercise)
                 .padding(30)
                 .font(.system(size: 70))
-            
-//            Button {
-//                poseVM.incrementExcerciseRep()
-//                print("DEBUG: rep count is \(poseVM.exercise.repCount)")
-//            } label: {
-//                Image(systemName: "plus")
-//            }
-//            .padding()
-
         }
     }
     
-    @ViewBuilder private func makeRepCountIndicator(for excercise: Excercise, color: Color = .orange, lineWidth: CGFloat = 16) -> some View {
+    @ViewBuilder private func makeRepCountIndicator(for exercise: Exercise, color: Color = .orange, lineWidth: CGFloat = 16) -> some View {
         CircleIndicator(
-            data: excercise.repCount,
-            upperBound: excercise.repetition,
+            data: exercise.repCount,
+            upperBound: exercise.repetition,
             showData: true,
             color: color,
             lineWidth: lineWidth

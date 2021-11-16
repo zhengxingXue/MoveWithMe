@@ -25,9 +25,9 @@ class PoseViewModel: NSObject, ObservableObject {
     @Published var leftLegAngel: Angle? = .none
     @Published var rightLegAngle: Angle? = .none
     
-    @Published var exercise: Excercise = JumpingJack()
+    @Published var exercise: Exercise = JumpingJack()
     
-    func incrementExcerciseRep() {
+    private func incrementExcerciseRep() {
         exercise.incrementCount()
     }
     

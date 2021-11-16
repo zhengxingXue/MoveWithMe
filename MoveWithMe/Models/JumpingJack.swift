@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct JumpingJack: Excercise {
+struct JumpingJack: Exercise {
     let name = "Jumping Jack"
     var repetition: Double = 12
     var repCount: Double = 0
