@@ -27,37 +27,6 @@ class PoseViewModel: NSObject, ObservableObject {
     
     @Published var exercise: Exercise = JumpingJack()
     
-    private var startConditionSatify: Bool = true
-    private var middleConditionSatify: Bool = false
-    private var endConditionSatify: Bool = false
-    
-    private func incrementExcerciseRep() {
-        if let leftArmAngle = self.leftArmAngle, let rightArmAngel = self.rightArmAngel {
-            if startConditionSatify {
-                if leftArmAngle > Angle(degrees: 150) && rightArmAngel > Angle(degrees: 150) {
-                    startConditionSatify = false
-                    middleConditionSatify = true
-                }
-                return
-            }
-            
-            if middleConditionSatify {
-                if leftArmAngle < Angle(degrees: 30) && rightArmAngel < Angle(degrees: 30) {
-                    middleConditionSatify = false
-                    endConditionSatify = true
-                }
-                return
-            }
-            
-            if endConditionSatify {
-                exercise.incrementCount()
-                endConditionSatify = false
-                startConditionSatify = true
-                return
-            }
-        }
-    }
-    
     private let videoCapture = VideoCapture()
     
     private var poseNet: PoseNet!
@@ -72,7 +41,7 @@ class PoseViewModel: NSObject, ObservableObject {
                 rightArmAngel = pose.getAngle(origin: .rightShoulder, p2: .rightElbow, p3: .rightHip)
                 leftLegAngel = pose.getAngle(origin: .leftHip, p2: .leftKnee, p3: .leftShoulder)
                 rightLegAngle = pose.getAngle(origin: .rightHip, p2: .rightKnee, p3: .rightShoulder)
-                incrementExcerciseRep()
+                exercise.incrementCount(for: pose)
             } else {
                 leftArmAngle = .none
                 rightArmAngel = .none

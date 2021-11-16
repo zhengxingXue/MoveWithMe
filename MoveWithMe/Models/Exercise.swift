@@ -12,5 +12,5 @@ protocol Exercise {
     var repetition: Double { get set }
     var repCount: Double { get set }
     
-    mutating func incrementCount()
+    mutating func incrementCount(for pose: Pose)
 }
