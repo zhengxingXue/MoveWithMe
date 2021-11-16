@@ -47,13 +47,13 @@ extension WorkoutStatsView {
     
     private var repCountView: some View {
         HStack(spacing: 0) {
-            makeRepCountIndicator(for: poseVM.excercise)
+            makeRepCountIndicator(for: poseVM.exercise)
                 .padding(30)
                 .font(.system(size: 70))
             
 //            Button {
 //                poseVM.incrementExcerciseRep()
-//                print("DEBUG: rep count is \(poseVM.excercise.repCount)")
+//                print("DEBUG: rep count is \(poseVM.exercise.repCount)")
 //            } label: {
 //                Image(systemName: "plus")
 //            }
