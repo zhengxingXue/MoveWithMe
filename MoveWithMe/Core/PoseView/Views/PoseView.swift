@@ -13,7 +13,7 @@ struct PoseView: View {
     @State var orientation = UIDevice.current.orientation
     @State var showButtons: Bool = true
     @State var showSettingView: Bool = false
-    @State var showDebugInfo: Bool = false
+    @State var showDebugInfo: Bool = true
     
     let orientationChanged = NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)
         .makeConnectable()
@@ -77,9 +77,11 @@ extension PoseView {
             if showDebugInfo {
                 VStack(alignment: .leading) {
                     Text("FPS \(poseVM.fps ?? -1)")
+                    Text("LAT \(poseVM.latency ?? -1)")
                 }
                 .foregroundColor(.white)
-                .frame(width: 100, height: 60, alignment: .center)
+                .padding(.leading, 23)
+                .frame(width: 100, height: 60, alignment: .leading)
                 .background(
                     RoundedRectangle(cornerRadius: 20)
                         .fill(Color.black.opacity(0.6))
