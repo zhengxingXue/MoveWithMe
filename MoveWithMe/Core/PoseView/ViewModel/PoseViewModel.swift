@@ -9,6 +9,7 @@ import AVFoundation
 import UIKit
 import VideoToolbox
 import SwiftUI
+import Combine
 
 class PoseViewModel: NSObject, ObservableObject {
     @Published var previewImageView = PoseNetImageView()
@@ -26,6 +27,8 @@ class PoseViewModel: NSObject, ObservableObject {
     @Published var rightLegAngle: Angle? = .none
     
     @Published var exercise: Exercise = JumpingJack()
+    
+    @Published var fps: Int? = .none
     
     private let videoCapture = VideoCapture()
     
@@ -51,6 +54,10 @@ class PoseViewModel: NSObject, ObservableObject {
         }
     }
     
+    private var timer: AnyCancellable?
+    private var currentSecond: Int = 0
+    private var frameCount: Int = 0
+    
     override init() {
         super.init()
         
@@ -64,6 +71,21 @@ class PoseViewModel: NSObject, ObservableObject {
         }
         poseNet.delegate = self
         setupAndBeginCapturingVideoFrames()
+        addSubscribers()
+    }
+    
+    private func addSubscribers() {
+        timer?.cancel()
+        timer = Timer
+            .publish(every: 1, on: .main, in: .common)
+            .autoconnect()
+            .sink { [weak self] _ in
+                guard let self = self else { return }
+                self.currentSecond += 1
+                self.fps = self.frameCount / self.currentSecond
+//                print("DEBUG: current second " + String(describing: self.currentSecond))
+//                print("DEBUG: current FPS \(String(describing: self.fps))")
+            }
     }
     
     func flipCamera() {
@@ -130,6 +152,8 @@ extension PoseViewModel: PoseNetDelegate {
         self.currentPose = poses.first
         
         previewImageView.show(poses: poses, on: currentFrame)
+        
+        self.frameCount += 1
     }
 }
 

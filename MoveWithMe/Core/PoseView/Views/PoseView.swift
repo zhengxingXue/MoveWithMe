@@ -13,6 +13,7 @@ struct PoseView: View {
     @State var orientation = UIDevice.current.orientation
     @State var showButtons: Bool = true
     @State var showSettingView: Bool = false
+    @State var showDebugInfo: Bool = false
     
     let orientationChanged = NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)
         .makeConnectable()
@@ -71,8 +72,24 @@ extension PoseView {
     
     // MARK: Bottom Section
     private var bottomSectionView: some View {
-        HStack {
+        HStack(alignment: .bottom) {
+            
+            if showDebugInfo {
+                VStack(alignment: .leading) {
+                    Text("FPS \(poseVM.fps ?? -1)")
+                }
+                .foregroundColor(.white)
+                .frame(width: 100, height: 60, alignment: .center)
+                .background(
+                    RoundedRectangle(cornerRadius: 20)
+                        .fill(Color.black.opacity(0.6))
+                )
+            } else {
+                EmptyView()
+            }
+            
             Spacer()
+            
             VStack {
                 if showButtons {
                     Button {
@@ -81,6 +98,13 @@ extension PoseView {
                     } label: {
                         CircleButtonLabel(systemName: "gearshape")
                     }
+                    
+                    Button {
+                        showDebugInfo.toggle()
+                    } label: {
+                        CircleButtonLabel(systemName: "ant")
+                    }
+                    
                     Button {
 //                        print("DEBUG: flip camera button clicked")
                         poseVM.flipCamera()
