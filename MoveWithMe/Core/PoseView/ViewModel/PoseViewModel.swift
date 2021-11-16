@@ -25,6 +25,12 @@ class PoseViewModel: NSObject, ObservableObject {
     @Published var leftLegAngel: Angle? = .none
     @Published var rightLegAngle: Angle? = .none
     
+    @Published var excercise: Excercise = JumpingJack()
+    
+    func incrementExcerciseRep() {
+        excercise.incrementCount()
+    }
+    
     private let videoCapture = VideoCapture()
     
     private var poseNet: PoseNet!

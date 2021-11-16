@@ -46,15 +46,30 @@ extension WorkoutStatsView {
     }
     
     private var repCountView: some View {
+        HStack(spacing: 0) {
+            makeRepCountIndicator(for: poseVM.excercise)
+                .padding(30)
+                .font(.system(size: 70))
+            
+//            Button {
+//                poseVM.incrementExcerciseRep()
+//                print("DEBUG: rep count is \(poseVM.excercise.repCount)")
+//            } label: {
+//                Image(systemName: "plus")
+//            }
+//            .padding()
+
+        }
+    }
+    
+    @ViewBuilder private func makeRepCountIndicator(for excercise: Excercise, color: Color = .orange, lineWidth: CGFloat = 16) -> some View {
         CircleIndicator(
-            data: 10,
+            data: excercise.repCount,
+            upperBound: excercise.repetition,
             showData: true,
-            color: .orange,
-            lineWidth: 16,
-            trimRatio: 10 / 12
+            color: color,
+            lineWidth: lineWidth
         )
-            .padding(30)
-            .font(.system(size: 70))
     }
     
     private var circleIndicatorWithFigureView: some View {
@@ -79,10 +94,10 @@ extension WorkoutStatsView {
     @ViewBuilder private func makeCircleIndicator(angle: Angle?, showData: Bool = false) -> some View {
         CircleIndicator(
             data: (angle?.degrees ?? 90),
+            upperBound: 180,
             showData: showData,
             color: .orange,
-            lineWidth: 10,
-            trimRatio: (angle?.degrees ?? 90) / 180
+            lineWidth: 10
         )
     }
     
