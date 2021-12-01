@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38577DAF2756C4CD0098B165 /* Squat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38577DAE2756C4CD0098B165 /* Squat.swift */; };
 		38B2B7A1273EF46B00779ED7 /* WorkoutStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B2B7A0273EF46B00779ED7 /* WorkoutStatsView.swift */; };
 		38C7146927440E4D008C447C /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C7146827440E4D008C447C /* Exercise.swift */; };
 		38C7146B27440FA2008C447C /* JumpingJack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C7146A27440FA2008C447C /* JumpingJack.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		38577DAE2756C4CD0098B165 /* Squat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Squat.swift; sourceTree = "<group>"; };
 		38B2B7A0273EF46B00779ED7 /* WorkoutStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutStatsView.swift; sourceTree = "<group>"; };
 		38C7146827440E4D008C447C /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		38C7146A27440FA2008C447C /* JumpingJack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JumpingJack.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 			children = (
 				38C7146827440E4D008C447C /* Exercise.swift */,
 				38C7146A27440FA2008C447C /* JumpingJack.swift */,
+				38577DAE2756C4CD0098B165 /* Squat.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 				38E1A841272B7319001952EF /* MoveWithMeApp.swift in Sources */,
 				38C7146927440E4D008C447C /* Exercise.swift in Sources */,
 				38E1A86F272B73A8001952EF /* PoseBuilder+Multiple.swift in Sources */,
+				38577DAF2756C4CD0098B165 /* Squat.swift in Sources */,
 				38D1AED3273A1A6500A6E31F /* CircleIndicator.swift in Sources */,
 				38E1A87B272B73A8001952EF /* PoseNetView.swift in Sources */,
 				38E1A888272B8777001952EF /* PoseNetSettingView.swift in Sources */,
